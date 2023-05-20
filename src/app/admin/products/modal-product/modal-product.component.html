@@ -1,0 +1,33 @@
+<div class="modal-header">
+    <h4 class="modal-title">Crear producto</h4>
+    <button type="button" class="close" aria-label="Cerrar" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="productForm">
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="text" class="form-control" id="codigo" formControlName="codigo">
+        </div>
+       
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" class="form-control" id="precio" formControlName="precio">
+        </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <input type="text" class="form-control" id="categoria" formControlName="categoria">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+    <button type="button" class="btn btn-primary" [disabled]="productForm.invalid" (click)="saveProduct()">Guardar</button>
+</div>

@@ -1,0 +1,42 @@
+#sidebar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+    transition: transform 0.3s ease;
+    z-index: 99;
+}
+
+#sidebar.active {
+    transform: translateX(-100%);
+}
+
+#content {
+    transition: margin-left 0.3s ease;
+    margin-left: 250px;
+    margin-top: 50px;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+#sidebar.active~#content {
+    margin-left: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+    }
+
+    #sidebar.active {
+        transform: translateX(-100%);
+    }
+}
+
+.sidebar-header {
+    text-align: center;
+    margin: 16px;
+}

@@ -1,0 +1,7 @@
+<div class="container mt-3 mb-3">
+    <ul class="list-group">
+        <ng-container *ngFor="let cliente of clientes">
+            <li class="list-group-item" (click)="seleccionarCliente(cliente)">{{cliente.identificacion}} &nbsp; {{cliente.nombre}}</li>
+        </ng-container>
+    </ul>
+</div>

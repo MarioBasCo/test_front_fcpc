@@ -1,0 +1,16 @@
+<div class="main text-center">
+    <div class="loginbox mx-auto mt-5 w-25 p-5 bg-light border border-2 rounded">
+        <h1 class="mb-5">Inicio de Sesión</h1>
+        <form [formGroup]="form" (ngSubmit)="iniciarSesion()">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Correo</span>
+                <input class="form-control" type="email" placeholder="your@email.com" formControlName="correo">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Contraseña</span>
+                <input class="form-control" type="password" formControlName="clave">
+            </div>
+            <button type="submit" [disabled]="form.invalid" class="btn bg-success rounded border text-white mt-3">Ingresar</button>
+        </form>
+    </div>
+</div>

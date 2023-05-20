@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light bg-light">
+    <button class="btn btn-primary toggle-button" (click)="toggleSidebar()">
+        <i class="fa fa-bars"></i>
+    </button>
+</nav>
+
+<div id="sidebar" [ngClass]="{'active': isSidebarOpen}">
+    <div class="sidebar-header">
+        <h3>FCPC-CTE</h3>
+    </div>
+    <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
+        <li class="nav-item" *ngIf="role == 'vendedor' || role == 'administrador' || role == 'supervisor'">
+            <a routerLink="orders" class="nav-link px-2 text-truncate"><i class="fa fa-check-to-slot fs-5"></i><span style="margin-left: 10px;">Ordenes</span></a>
+        </li>
+        <li class="nav-item" *ngIf="role == 'administrador' || role == 'supervisor'">
+            <a routerLink="reports" class="nav-link px-2 text-truncate"><i class="fa fa-scroll fs-5"></i><span style="margin-left: 10px;">Reportes</span></a>
+        </li>
+        <li class="nav-item" *ngIf="role == 'administrador' || role == 'supervisor'">
+            <a routerLink="products" class="nav-link px-2 text-truncate"><i class="fa fa-boxes-stacked fs-5"></i><span style="margin-left: 10px;">Productos</span></a>
+        </li>
+        <li class="nav-item" *ngIf="role == 'administrador' || role == 'supervisor'">
+            <a routerLink="clients" class="nav-link px-2 text-truncate"><i class="fa fa-users fs-5"></i><span style="margin-left: 10px;">Clientes</span></a>
+        </li>
+        <li class="nav-item" *ngIf="role=='administrador'">
+            <a routerLink="users" class="nav-link px-2 text-truncate"><i class="fa fa-users-gear fs-5"></i><span style="margin-left: 10px;">Usuarios</span></a>
+        </li>
+    </ul>
+
+    <div class="mt-6 text-center">
+        <button class="btn btn-danger" (click)="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+</div>
+
+<div id="content">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,97 @@
+<div class="container">
+    <h2>Clientes</h2>
+    <button type="button" class="btn btn-primary mb-3" (click)="openModal()">Nuevo
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <!-- <th>Acciones</th> -->
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let item of listClientes">
+                    <td>{{item.identificacion}}</td>
+                    <td class="text-center">{{item.nombre}}</td>
+                    <td class="text-center">{{item.correo}}</td>
+                    <td class="text-center">{{item.direccion}}</td>
+                    <td class="text-end">{{item.telefono}}</td>
+                    <!-- <td class="text-center"><a class="btn btn-primary" (click)="functionedit(item)">Edit</a> | <a class="btn btn-danger"
+                            (click)="functiondelete(item)">Delete</a></td> -->
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Formulario</h4>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="cliform" (ngSubmit)="save()">
+                <div class="mb-3">
+                    <label>Identificación</label>
+                    <div class="input-group">
+                        <input class="form-control" formControlName="identificacion" maxlength="13">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Nombre</label>
+                    <div class="input-group">
+                        <input class="form-control" formControlName="nombre" maxlength="150">
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <label>Correo</label>
+                    <div class="input-group">
+                        <input class="form-control" formControlName="correo">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Direccion</label>
+                    <div class="input-group">
+                        <input class="form-control" formControlName="direccion">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Telefono</label>
+                    <div class="input-group">
+                        <input class="form-control" formControlName="telefono" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex justify-content-between" style="width: 100%;">
+                    <div>
+                        <button [disabled]="cliform.invalid" type="submit" class="btn btn-primary">Save</button>
+                    </div>
+
+                   
+                    <div>
+                        <button type="button" class="btn btn-danger" (click)="closePopup()">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

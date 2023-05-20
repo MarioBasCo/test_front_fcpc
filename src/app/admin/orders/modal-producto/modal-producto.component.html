@@ -1,0 +1,7 @@
+<div class="container mt-3 mb-3">
+    <ul class="list-group">
+        <ng-container *ngFor="let pro of productos">
+            <li class="list-group-item" (click)="seleccionarProducto(pro)">{{pro.descripcion}} &nbsp; {{pro.precio | currency: 'USD'}}</li>
+        </ng-container>
+    </ul>
+</div>

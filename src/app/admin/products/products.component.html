@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Productos</h2>
+    <button type="button" class="btn btn-primary mb-3" (click)="openModal()">Nuevo
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let item of list">
+                    <td>{{item.codigo}}</td>
+                    <td class="text-center">{{item.descripcion}}</td>
+                    <td class="text-end">{{item.precio | currency: 'USD'}}</td>
+                    <td class="text-center"><span class="badge bg-info text-dark">{{item.categoria}}</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

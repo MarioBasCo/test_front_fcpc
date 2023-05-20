@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let registro of registros">
+        <td>{{ registro.id }}</td>
+        <td>{{ registro.cliente.nombre }}</td>
+        <td>{{ registro.fecha }}</td>
+        <td>{{registro.total | currency: 'USD'}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="abrirModalDetalle(registro)">Ver Detalles</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
